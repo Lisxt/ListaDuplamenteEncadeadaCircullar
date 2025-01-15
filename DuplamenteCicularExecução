@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "Duplamentecircular.c"
+
+int main (void){
+    Lista* l; /* declara uma lista n�o iniciada */
+    l = inicializa(); /* inicia lista vazia */
+    
+    printf("Insere elementos na lista em ordem:\n");
+
+    l = insere_ordenado(l, 23,67); /* insere na lista a nota do aluno 23 */
+    l = insere_ordenado(l, 78,89); /* insere na lista a nota do aluno elemento 78 */
+    l = insere_ordenado(l, 56,87); /* insere na lista a nota do aluno elemento 56 */
+    l = insere_ordenado(l, 45,98); /* insere na lista a nota do aluno elemento 45 */
+
+    //l = insere_inicio(l, 23,67); 
+    //l = insere_inicio(l, 45,98); 
+    //l = insere_inicio(l, 56,87); 
+    //l = insere_inicio(l, 78,89); 
+    
+    printf("\nLista após inserções:\n");
+    imprime(l);/* imprimir�: nota dos alunos 78 56 45 23 */
+
+    printf("\nBuscando o aluno com o codigo 45:\n");
+    Lista* buscaRes = busca(l, 45);
+    if(buscaRes != NULL)
+    printf("\nAluno encontrado: Codigo = %d, Nota = %d\n", buscaRes->codAluno, buscaRes->nota);
+    else
+    printf("\nAluno com código 45 não encontrado.:\n");
+  
+    //l = retira(l, 78);
+    //imprime(l); /* imprimir�: 56 45 23 */
+    //l = retira(l, 45);
+    //imprime(l); /* imprimir�: 56 23 */
+    //libera(l);
+    //getchar();
+    return 0;
+}
+
